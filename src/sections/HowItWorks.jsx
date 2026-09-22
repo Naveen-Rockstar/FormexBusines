@@ -1,25 +1,29 @@
 /**
- * FORMEXAI — How It Works Section (Minimal Black Icons + Vertical Timeline Refinement)
+ * FORMEXAI — How It Works Section (Visual Connected Product Journey)
  * 
- * Layout Architecture:
- * - Minimalist section intro with breathing room
- * - Narrow central container (~760px) with generous side whitespace
- * - One thin central vertical timeline
- * - 7 Stages with alternating left/right layout on Desktop
- * - Strictly BLACK line icons in subtle white containers (#FFFFFF / #EAECF0)
- * - Subtle FormexAI orange accent ONLY on the active timeline node
- * - Clean 1-column layout on Mobile
+ * Clean, rock-solid full-width vertical workflow journey:
+ * 01 — CALL
+ * 02 — ANSWER
+ * 03 — UNDERSTAND
+ * 04 — QUALIFY
+ * 05 — BOOK / ROUTE
+ * 06 — FOLLOW UP
+ * 
+ * Features:
+ * - Continuous connected vertical spine with progressive scroll lighting
+ * - Zero alignment bugs across all viewport sizes
+ * - Minimal black/white foundation with subtle Formex blue active highlights
+ * - Large numbers, clean typography, and spacious vertical rhythm
  */
 
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   PhoneCall, 
-  Headset, 
-  MessageCircle, 
+  Headphones, 
+  BrainCircuit, 
   ClipboardCheck, 
   CalendarCheck, 
-  UsersRound, 
-  MailCheck 
+  MessageSquareCheck 
 } from 'lucide-react';
 
 export function HowItWorks() {
@@ -31,54 +35,58 @@ export function HowItWorks() {
       num: '01',
       id: 'call',
       name: 'CALL',
+      title: 'A customer calls your business.',
+      desc: 'Homeowners and clients dial your existing phone line at any hour of the day or night.',
       icon: PhoneCall,
-      desc: 'A customer calls your business.'
+      detail: 'Carrier SIP forward (*72) connects instantly'
     },
     {
       num: '02',
       id: 'answer',
       name: 'ANSWER',
-      icon: Headset,
-      desc: 'FormexAI answers immediately.'
+      title: 'FormexAI answers immediately.',
+      desc: 'Picks up on the first ring in under one second with your custom company greeting and professional tone.',
+      icon: Headphones,
+      detail: '< 1-second pickup with zero hold queues'
     },
     {
       num: '03',
       id: 'understand',
       name: 'UNDERSTAND',
-      icon: MessageCircle,
-      desc: 'Understands what the customer needs.'
+      title: 'FormexAI understands what the customer needs.',
+      desc: 'Converses naturally to triage service symptoms, diagnostic inquiries, or emergency heating/cooling outages.',
+      icon: BrainCircuit,
+      detail: 'Natural language understanding without keypad menus'
     },
     {
       num: '04',
       id: 'qualify',
       name: 'QUALIFY',
+      title: 'FormexAI collects the relevant information.',
+      desc: 'Captures caller identity, service address, equipment age, and validates your defined service territory.',
       icon: ClipboardCheck,
-      desc: 'Collects the right information.'
+      detail: 'Custom business rules & territory boundaries applied'
     },
     {
       num: '05',
-      id: 'book',
-      name: 'BOOK',
+      id: 'book-route',
+      name: 'BOOK / ROUTE',
+      title: 'FormexAI books the appointment or routes the call.',
+      desc: 'Queries real-time technician routes to lock confirmed arrival windows, or initiates warm phone transfer for emergencies.',
       icon: CalendarCheck,
-      desc: 'Schedules the appointment.'
+      detail: 'Two-way calendar lock (Google Calendar / Outlook)'
     },
     {
       num: '06',
-      id: 'route',
-      name: 'ROUTE',
-      icon: UsersRound,
-      desc: 'Brings in your team when needed.'
-    },
-    {
-      num: '07',
-      id: 'followup',
+      id: 'follow-up',
       name: 'FOLLOW UP',
-      icon: MailCheck,
-      desc: 'Keeps the conversation going.'
+      title: 'FormexAI sends the appropriate follow-up.',
+      desc: 'Dispatches instant SMS arrival confirmation to the customer and writes complete work order notes into your CRM.',
+      icon: MessageSquareCheck,
+      detail: 'SMS delivered + CRM record automatically logged'
     }
   ];
 
-  // Set up IntersectionObserver to track active stage on scroll
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -94,8 +102,8 @@ export function HowItWorks() {
         });
       },
       {
-        threshold: 0.5,
-        rootMargin: '-15% 0px -25% 0px'
+        threshold: 0.45,
+        rootMargin: '-10% 0px -25% 0px'
       }
     );
 
@@ -107,36 +115,30 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section className="how-it-works-root minimal-workflow-root" id="how-it-works" aria-label="How FormexAI Works">
+    <section className="how-it-works-journey-root" id="how-it-works" aria-label="How FormexAI Works">
       <div className="container">
         
-        {/* Minimal Section Header */}
-        <div className="minimal-how-header">
-          <span className="eyebrow">HOW IT WORKS</span>
-          <h2 className="minimal-how-headline">From a call to a booked job.</h2>
-          <p className="minimal-how-subhead">
-            Seven simple steps. One seamless experience.<br />
-            FormexAI handles the conversation so your team can focus on what matters.
+        {/* Section Header */}
+        <div className="how-journey-header">
+          <div className="journey-eyebrow-line">
+            <span className="bracket">[</span>
+            <span className="eyebrow-mono">HOW IT WORKS</span>
+            <span className="bracket">]</span>
+          </div>
+          <h2 className="journey-main-headline">
+            From a call to a booked job.
+          </h2>
+          <p className="journey-subhead">
+            Six structured stages. One continuous operational workflow.<br />
+            FormexAI handles the conversation so your team can focus on the job.
           </p>
         </div>
 
-        {/* Vertical Timeline Workflow Container */}
-        <div className="minimal-workflow-container">
+        {/* Vertical Connected Journey Timeline */}
+        <div className="journey-timeline-container">
           
-          {/* Thin Central Progress Timeline */}
-          <div className="minimal-timeline-track" aria-hidden="true">
-            <div 
-              className="minimal-timeline-progress-bar"
-              style={{
-                height: `${((activeStage + 1) / stages.length) * 100}%`
-              }}
-            />
-          </div>
-
-          {/* 7 Minimal Vertical Stages */}
-          <div className="minimal-stages-list">
+          <div className="journey-stages-stack">
             {stages.map((st, idx) => {
-              const isIconLeft = idx % 2 === 0;
               const isActive = idx === activeStage;
               const isPast = idx < activeStage;
               const IconComp = st.icon;
@@ -146,42 +148,47 @@ export function HowItWorks() {
                   key={st.id}
                   ref={(el) => (stageRefs.current[idx] = el)}
                   data-stage-index={idx}
-                  className={`minimal-stage-row ${isIconLeft ? 'icon-left-row' : 'icon-right-row'} ${isActive ? 'stage-active' : ''} ${isPast ? 'stage-past' : ''}`}
+                  className={`journey-stage-row ${isActive ? 'stage-active' : ''} ${isPast ? 'stage-past' : ''}`}
                 >
                   
-                  {/* Center Node Dot */}
-                  <div className="minimal-node-anchor">
-                    <div className={`minimal-node-dot ${isActive ? 'dot-active' : ''} ${isPast ? 'dot-past' : ''}`} />
-                  </div>
-
-                  {/* Left Column (Icon or Text) */}
-                  <div className="minimal-col col-left">
-                    {isIconLeft ? (
-                      <div className="minimal-icon-box">
-                        <IconComp size={30} className="minimal-black-icon" strokeWidth={1.8} aria-hidden="true" />
+                  {/* Left Column: Number & Spine Node */}
+                  <div className="journey-spine-column">
+                    <div className="spine-node-indicator">
+                      <span className="node-num-tag">{st.num}</span>
+                      <div className="node-center-dot">
+                        <span className="dot-inner" />
                       </div>
-                    ) : (
-                      <div className="minimal-text-box text-align-right">
-                        <span className="minimal-stage-num">{st.num}</span>
-                        <h3 className="minimal-stage-title">{st.name}</h3>
-                        <p className="minimal-stage-desc">{st.desc}</p>
+                    </div>
+                    {idx < stages.length - 1 && (
+                      <div className="spine-connecting-line">
+                        <div 
+                          className="spine-progress-fill" 
+                          style={{ height: isPast || isActive ? '100%' : '0%' }}
+                        />
                       </div>
                     )}
                   </div>
 
-                  {/* Right Column (Text or Icon) */}
-                  <div className="minimal-col col-right">
-                    {isIconLeft ? (
-                      <div className="minimal-text-box text-align-left">
-                        <span className="minimal-stage-num">{st.num}</span>
-                        <h3 className="minimal-stage-title">{st.name}</h3>
-                        <p className="minimal-stage-desc">{st.desc}</p>
+                  {/* Right Column: Stage Content Card */}
+                  <div className="journey-content-card">
+                    <div className="stage-card-topbar">
+                      <div className="stage-name-pill">
+                        <span className="stage-prefix">STAGE {st.num}</span>
+                        <span className="stage-sep">/</span>
+                        <span className="stage-keyword">{st.name}</span>
                       </div>
-                    ) : (
-                      <div className="minimal-icon-box">
-                        <IconComp size={30} className="minimal-black-icon" strokeWidth={1.8} aria-hidden="true" />
+                      <div className="stage-icon-wrap">
+                        <IconComp size={18} className="stage-icon" aria-hidden="true" />
                       </div>
-                    )}
+                    </div>
+
+                    <h3 className="stage-headline">{st.title}</h3>
+                    <p className="stage-paragraph">{st.desc}</p>
+
+                    <div className="stage-detail-footnote">
+                      <span className="detail-check">✓</span>
+                      <span className="detail-text">{st.detail}</span>
+                    </div>
                   </div>
 
                 </div>

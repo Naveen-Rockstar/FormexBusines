@@ -1,29 +1,31 @@
 /**
  * FORMEXAI — Home Page
- * Master 16-Part Product-Led Story Structure (Section 31 of Prompt):
+ * Master Editorial Product-Led Story Structure:
  * 
  * 01 NAVIGATION (Global Navbar in App.jsx)
- * 02 HERO ("Every call answered. Every opportunity handled.")
- * 03 PROBLEM ("Your team can't answer every call. FormexAI can.")
- * 04 LIVE AI DEMO ("Don't take our word for it. Talk to FormexAI.")
- * 05 HOW IT WORKS ("From ringing phone to booked job" — 7 Stages)
- * 06 PRODUCT PREVIEW ("See what your team sees" — Dashboard & Sarah Mitchell Call Detail)
- * 07 REAL HVAC SCENARIOS ("Built for the calls your team actually gets")
- * 08 CORE CAPABILITIES (Answer, Understand, Qualify, Book, Route, Follow Up)
- * 09 BUSINESS WORKFLOW (Before FormexAI vs With FormexAI)
- * 10 INTEGRATIONS ("Connect FormexAI with your workflow")
- * 11 HUMAN CONTROL ("AI handles the routine. Your team handles what matters.")
- * 12 INDUSTRIES ("Built for HVAC. Designed for home services.")
- * 13 TRUST ("Designed around your business rules")
- * 14 FAQ (Direct HVAC contractor answers)
- * 15 FINAL CTA ("Stop sending customers to voicemail")
- * 16 FOOTER (Global Footer in App.jsx)
+ * 02 HERO (Dark Cinematic Hero: "Every call answered. Every opportunity handled.")
+ * 03 ENGINEERED FOR (Full-width animated industry marquee ticker)
+ * 04 THE FORMEXAI DIFFERENCE (Minimalist Black & White data story with 3 large metrics)
+ * 05 PLATFORM CAPABILITIES (Connected Visual Workflow System)
+ * 06 HOW IT WORKS (Visual 6-Stage Connected Journey)
+ * 07 PRODUCT PREVIEW ("See what your team sees" — Dashboard & Sarah Mitchell Call Detail)
+ * 08 REAL HVAC SCENARIOS ("Built for the calls your team actually gets")
+ * 09 CORE CAPABILITIES (Answer, Understand, Qualify, Book, Route, Follow Up)
+ * 10 BUSINESS WORKFLOW (Before FormexAI vs With FormexAI)
+ * 11 INTEGRATIONS ("Connect FormexAI with your workflow")
+ * 12 HUMAN CONTROL ("AI handles the routine. Your team handles what matters.")
+ * 13 INDUSTRIES ("Built for HVAC. Designed for home services.")
+ * 14 TRUST ("Designed around your business rules")
+ * 15 FAQ (Direct HVAC contractor answers)
+ * 16 FINAL CTA ("Stop sending customers to voicemail")
+ * 17 FOOTER (Global Footer in App.jsx)
  */
 
 import React from 'react';
 import { Hero } from '../sections/Hero.jsx';
+import { EngineeredForTicker } from '../sections/EngineeredForTicker.jsx';
+import { FormexDifferenceSection } from '../sections/FormexDifferenceSection.jsx';
 import { ProblemSection } from '../sections/ProblemSection.jsx';
-import { LiveVoiceDemo } from '../sections/LiveVoiceDemo.jsx';
 import { HowItWorks } from '../sections/HowItWorks.jsx';
 import { ProductPreviewSection } from '../sections/ProductPreviewSection.jsx';
 import { RealHvacScenarios } from '../sections/RealHvacScenarios.jsx';
@@ -39,46 +41,49 @@ import { FinalCta } from '../sections/FinalCta.jsx';
 export function HomePage({ onOpenDemoModal }) {
   return (
     <>
-      {/* 02 HERO: Product-led headline, HVAC value proposition, and realistic call UI */}
+      {/* 02 HERO: Dark cinematic headline, unboxed eyebrow, and high-contrast CTAs */}
       <Hero onOpenDemoModal={onOpenDemoModal} />
 
-      {/* 03 PROBLEM: 6 real contractor situations why calls get missed */}
+      {/* 03 ENGINEERED FOR: Continuous animated industry marquee ticker */}
+      <EngineeredForTicker />
+
+      {/* 04 THE FORMEXAI DIFFERENCE: Minimalist Black & White data story with 3 large metrics */}
+      <FormexDifferenceSection />
+
+      {/* 05 PLATFORM CAPABILITIES: Connected Visual Workflow System */}
       <ProblemSection />
 
-      {/* 04 LIVE AI DEMO: Interactive speech recognition + prompt chips + ticket */}
-      <LiveVoiceDemo />
-
-      {/* 05 HOW IT WORKS: 7-stage connected operational workflow */}
+      {/* 06 HOW IT WORKS: 6-stage connected operational workflow */}
       <HowItWorks />
 
-      {/* 06 PRODUCT PREVIEW: Operational metrics overview & Sarah Mitchell call detail */}
+      {/* 07 PRODUCT PREVIEW: Operational metrics overview & Sarah Mitchell call detail */}
       <ProductPreviewSection />
 
-      {/* 07 REAL HVAC SCENARIOS: Emergency, Service, Replacement, Maintenance */}
+      {/* 08 REAL HVAC SCENARIOS: Emergency, Service, Replacement, Maintenance */}
       <RealHvacScenarios />
 
-      {/* 08 CORE CAPABILITIES: Answer, Understand, Qualify, Book, Route, Follow Up */}
+      {/* 09 CORE CAPABILITIES: Answer, Understand, Qualify, Book, Route, Follow Up */}
       <CoreCapabilities />
 
-      {/* 09 BUSINESS WORKFLOW: Before FormexAI vs With FormexAI */}
+      {/* 10 BUSINESS WORKFLOW: Before FormexAI vs With FormexAI */}
       <BusinessWorkflow />
 
-      {/* 10 INTEGRATIONS: Truthful ecosystem connections (Calendar, SMS, CRM) */}
+      {/* 11 INTEGRATIONS: Truthful ecosystem connections (Calendar, SMS, CRM) */}
       <Integrations />
 
-      {/* 11 HUMAN CONTROL: Routine to AI, emergencies and complex calls to humans */}
+      {/* 12 HUMAN CONTROL: Routine to AI, emergencies and complex calls to humans */}
       <HumanControl />
 
-      {/* 12 INDUSTRIES: Flagship HVAC + Home Services (Plumbing, Electrical, Roofing) */}
-      <IndustriesSection />
+      {/* 13 INDUSTRIES: Flagship HVAC + Home Services (Plumbing, Electrical, Roofing) */}
+      <IndustriesSection onOpenDemoModal={onOpenDemoModal} />
 
-      {/* 13 TRUST: Business rules, territories, pricing policies, test calls */}
+      {/* 14 TRUST: Business rules, territories, pricing policies, test calls */}
       <TrustSection />
 
-      {/* 14 FAQ: Practical contractor questions answered */}
+      {/* 15 FAQ: Practical contractor questions answered */}
       <FaqSection />
 
-      {/* 15 FINAL CTA: Stop losing revenue to voicemail */}
+      {/* 16 FINAL CTA: Stop losing revenue to voicemail */}
       <FinalCta onOpenDemoModal={onOpenDemoModal} />
     </>
   );
